@@ -4,10 +4,18 @@ fn bigger(a: i32, b: i32) -> i32 {
     // Do not use:
     // - another function call
     // - additional variables
+    match a.cmp(&b) {
+        std::cmp::Ordering::Greater => a,
+        std::cmp::Ordering::Less => b,
+        std::cmp::Ordering::Equal => a,
+        
+    }
 }
 
 fn main() {
-    // You can optionally experiment here.
+    let a = 10;
+    let b = 8;
+    println!("The bigger number between {a} and {b} is {}", bigger(a, b));
 }
 
 // Don't mind this for now :)
